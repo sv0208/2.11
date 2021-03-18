@@ -1,0 +1,52 @@
+<html>
+<head></head>
+<body>
+<script src="sigma.min.js"></script>
+<div id="container">
+  <style>
+    #graph {
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      position: absolute;
+    }
+  </style>
+  <div id="graph"></div>
+</div>
+<script>
+var s,
+    g = {
+      nodes: [],
+      edges: []
+    };
+
+for (var i = 0; i < 100; i++)
+   
+  g.nodes.push({
+    id: 'n' + i,
+    label: 'Точка ' + i,
+    x: Math.random(),
+    y: Math.random(),
+    size: Math.random(),
+    color: 'rgb('+ Math.floor(255*Math.random())+','
+    + Math.floor(255*Math.random())+','+Math.floor(255*Math.random())+')'
+  });
+
+for (var i = 0; i < 200; i++)
+  g.edges.push({
+    id: 'e' + i,
+    source: 'n' + (Math.random() * 100 | 0),
+    target: 'n' + (Math.random() * 100 | 0),
+    size: Math.random(),
+    color: 'rgb('+ Math.floor(255*Math.random())+','
+    + Math.floor(255*Math.random())+','+Math.floor(255*Math.random())+')'
+  });
+
+s = new sigma({
+  graph: g,
+  container: 'graph'
+});
+</script>
+</body>
+</html>
